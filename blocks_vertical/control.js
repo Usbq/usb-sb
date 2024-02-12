@@ -374,8 +374,8 @@ Blockly.Blocks['control_for_each'] = {
           "name": "SUBSTACK"
         }
       ],
-      "category": Blockly.Categories.control,
-      "extensions": ["colours_control", "shape_statement"]
+      "category": Blockly.Categories.data,
+      "extensions": ["colours_data", "shape_statement"]
     });
   }
 };
