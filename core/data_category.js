@@ -59,6 +59,7 @@ Blockly.DataCategory = function(workspace) {
     Blockly.DataCategory.addChangeVariableBy(xmlList, firstVariable);
     Blockly.DataCategory.addShowVariable(xmlList, firstVariable);
     Blockly.DataCategory.addHideVariable(xmlList, firstVariable);
+    Blockly.DataCategory.addSep(xmlList);
     Blockly.DataCategory.addForEach(xmlList, firstVariable);
   }
 
@@ -190,7 +191,7 @@ Blockly.DataCategory.addForEach = function(xmlList, variable) {
   //   </value>
   // </block>
   Blockly.DataCategory.addBlock(xmlList, variable, 'control_for_each',
-      'VARIABLE');
+      'VARIABLE', ['VALUE', 'math_number', 1]);
 };
 
 /**
