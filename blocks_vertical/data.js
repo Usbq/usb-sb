@@ -29,6 +29,27 @@ goog.require('Blockly.constants');
 goog.require('Blockly.ScratchBlocks.VerticalExtensions');
 
 
+Blockly.Blocks['data_variablemenu'] = {
+  /**
+   * Block of Variables
+   * @this Blockly.Block
+   */
+  init: function() {
+    this.jsonInit({
+      "message0": "%1",
+      "lastDummyAlign0": "CENTRE",
+      "args0": [
+        {
+          "type": "field_variable",
+          "name": "VARIABLE"
+        }
+      ],
+      "category": Blockly.Categories.data,
+      "extensions": ["colours_data", "output_string"]
+    });
+  }
+};
+
 Blockly.Blocks['data_variable'] = {
   /**
    * Block of Variables
@@ -46,9 +67,11 @@ Blockly.Blocks['data_variable'] = {
           "variableType": ""
         }
       ],
+      "output": null,
       "category": Blockly.Categories.data,
       "checkboxInFlyout": true,
-      "extensions": ["contextMenu_getVariableBlock", "colours_data", "output_string"]
+      "extensions": ["contextMenu_getVariableBlock", "colours_data"],
+      "outputShape": Blockly.OUTPUT_SHAPE_ROUND
     });
   }
 };
@@ -161,9 +184,11 @@ Blockly.Blocks['data_listcontents'] = {
           "variableType": Blockly.LIST_VARIABLE_TYPE
         }
       ],
+      "output": null,
       "category": Blockly.Categories.dataLists,
-      "extensions": ["contextMenu_getListBlock", "colours_data_lists", "output_string"],
-      "checkboxInFlyout": true
+      "checkboxInFlyout": true,
+      "extensions": ["contextMenu_getListBlock", "colours_data_lists"],
+      "outputShape": Blockly.OUTPUT_SHAPE_ROUND
     });
   }
 };
