@@ -59,6 +59,7 @@ Blockly.DataCategory = function(workspace) {
     Blockly.DataCategory.addChangeVariableBy(xmlList, firstVariable);
     Blockly.DataCategory.addShowVariable(xmlList, firstVariable);
     Blockly.DataCategory.addHideVariable(xmlList, firstVariable);
+    Blockly.DataCategory.addForEach(xmlList, firstVariable);
   }
 
   // Now add list variables to the flyout
@@ -174,6 +175,21 @@ Blockly.DataCategory.addHideVariable = function(xmlList, variable) {
   //   </value>
   // </block>
   Blockly.DataCategory.addBlock(xmlList, variable, 'data_hidevariable',
+      'VARIABLE');
+};
+
+/**
+ * Construct and add a control_for_each block to xmlList.
+ * @param {!Array.<!Element>} xmlList Array of XML block elements.
+ * @param {?Blockly.VariableModel} variable Variable to select in the field.
+ */
+Blockly.DataCategory.addForEach = function(xmlList, variable) {
+  // <block type="data_hidevariable">
+  //   <value name="VARIABLE">
+  //     <shadow type="data_variablemenu"></shadow>
+  //   </value>
+  // </block>
+  Blockly.DataCategory.addBlock(xmlList, variable, 'control_for_each',
       'VARIABLE');
 };
 
