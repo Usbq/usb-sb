@@ -76,7 +76,7 @@ Blockly.DataCategory = function(workspace) {
     Blockly.DataCategory.addAddToList(xmlList, firstVariable);
     Blockly.DataCategory.addSep(xmlList);
     Blockly.DataCategory.addDeleteOfList(xmlList, firstVariable);
-    Blockly.DataCategory.addDeleteAllOfList(xmlList, firstVariable);
+//    Blockly.DataCategory.addDeleteAllOfList(xmlList, firstVariable);
     Blockly.DataCategory.addInsertAtList(xmlList, firstVariable);
     Blockly.DataCategory.addReplaceItemOfList(xmlList, firstVariable);
     Blockly.DataCategory.addSep(xmlList);
@@ -233,13 +233,13 @@ Blockly.DataCategory.addDeleteOfList = function(xmlList, variable) {
  * @param {?Blockly.VariableModel} variable Variable to select in the field.
  */
 
-//Blockly.DataCategory.addDeleteAllOfList = function(xmlList, variable) {
-//  // <block type="data_deletealloflist">
-//  //   <field name="LIST" variabletype="list" id="">variablename</field>
-//  // </block>
-//  Blockly.DataCategory.addBlock(xmlList, variable, 'data_deletealloflist',
-//      'LIST');
-//};
+Blockly.DataCategory.addDeleteAllOfList = function(xmlList, variable) {
+  // <block type="data_deletealloflist">
+  //   <field name="LIST" variabletype="list" id="">variablename</field>
+  // </block>
+  Blockly.DataCategory.addBlock(xmlList, variable, 'data_deletealloflist',
+      'LIST');
+};
 
 /**
  * Construct and add a data_insertatlist block to xmlList.
