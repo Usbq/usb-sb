@@ -659,12 +659,6 @@ Blockly.Procedures.USER_CAN_CHANGE_CALL_TYPE = true;
 Blockly.Procedures.ENFORCE_TYPES = false;
 
 /**
- * If true, the return block will always be available. If false, either create a block that requires
- * returns or call workspace.enableProcedureReturns() to enable return blocks.
- */
-Blockly.Procedures.DEFAULT_ENABLE_RETURNS = false;
-
-/**
  * @param {string} procCode The procedure code
  * @param {Blockly.Workspace} workspace The workspace
  * @returns {number} The type of the return block
