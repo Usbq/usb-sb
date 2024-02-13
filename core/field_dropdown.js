@@ -151,6 +151,8 @@ Blockly.FieldDropdown.prototype.init = function() {
       'fill-opacity': 1
     }, null);
     this.fieldGroup_.insertBefore(this.box_, this.textElement_);
+  } else {
+    this.sourceBlock_.setShadowColour(this.sourceBlock_.getParent().getColourSecondary());
   }
   // Force a reset of the text to add the arrow.
   var text = this.text_;
