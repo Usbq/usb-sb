@@ -246,10 +246,17 @@ Blockly.FieldAngle.prototype.showEditor_ = function() {
       Blockly.mainWorkspace.options.pathToMedia + Blockly.FieldAngle.ARROW_SVG_PATH
   );
 
-  Blockly.DropDownDiv.setColour(this.sourceBlock_.parentBlock_.getColour(),
-      this.sourceBlock_.getColourTertiary());
-  Blockly.DropDownDiv.setCategory(this.sourceBlock_.parentBlock_.getCategory());
-  Blockly.DropDownDiv.showPositionedByBlock(this, this.sourceBlock_);
+  if (this.sourceBlock_.isShadow()) {
+    Blockly.DropDownDiv.setColour(this.sourceBlock_.parentBlock_.getColour(),
+        this.sourceBlock_.getColourTertiary());
+    Blockly.DropDownDiv.setCategory(this.sourceBlock_.parentBlock_.getCategory());
+    Blockly.DropDownDiv.showPositionedByBlock(this, this.sourceBlock_);
+  } else {
+    Blockly.DropDownDiv.setColour(this.sourceBlock_.getColour(),
+        this.sourceBlock_.getColourTertiary());
+    Blockly.DropDownDiv.setCategory(this.sourceBlock_.getCategory());
+    Blockly.DropDownDiv.showPositionedByBlock(this, this.sourceBlock_);
+  }
 
   this.mouseDownWrapper_ =
       Blockly.bindEvent_(this.handle_, 'mousedown', this, this.onMouseDown);
