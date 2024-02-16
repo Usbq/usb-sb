@@ -50,9 +50,9 @@ Blockly.DataCategory = function(workspace) {
   for (var i = 0; i < variableModelList.length; i++) {
     Blockly.DataCategory.addDataVariable(xmlList, variableModelList[i]);
   }
+  Blockly.DataCategory.addSep(xmlList);
 
   if (variableModelList.length > 0) {
-    xmlList[xmlList.length - 1].setAttribute('gap', 28);
     var firstVariable = variableModelList[0];
 
     Blockly.DataCategory.addSetVariableTo(xmlList, firstVariable);
@@ -61,6 +61,7 @@ Blockly.DataCategory = function(workspace) {
     Blockly.DataCategory.addHideVariable(xmlList, firstVariable);
     Blockly.DataCategory.addSep(xmlList);
     Blockly.DataCategory.addForEach(xmlList, firstVariable);
+    Blockly.DataCategory.addSep(xmlList);
   }
 
   // Now add list variables to the flyout
@@ -70,9 +71,9 @@ Blockly.DataCategory = function(workspace) {
   for (var i = 0; i < variableModelList.length; i++) {
     Blockly.DataCategory.addDataList(xmlList, variableModelList[i]);
   }
+  Blockly.DataCategory.addSep(xmlList);
 
   if (variableModelList.length > 0) {
-    xmlList[xmlList.length - 1].setAttribute('gap', 28);
     var firstVariable = variableModelList[0];
 
     Blockly.DataCategory.addAddToList(xmlList, firstVariable);
@@ -451,9 +452,8 @@ Blockly.DataCategory.addBlock = function(xmlList, variable, blockType,
           opt_secondValue[1], opt_secondValue[2]);
     }
 
-    var gap = 10;
     var blockText = '<xml>' +
-        '<block type="' + blockType + '" gap="' + gap + '">' +
+        '<block type="' + blockType + '">' +
         Blockly.Variables.generateVariableFieldXml_(variable, fieldName) +
         firstValueField + secondValueField +
         '</block>' +
