@@ -36,7 +36,8 @@ jobs:
       with:
         python-version: 3.x
     # Build
-    - run: npm ci
+    # Pre-public runs ci automatically
+    #- run: npm ci
     #- run: npm run test:lint
     - run: npm run prepublish
     # Pull request changes
