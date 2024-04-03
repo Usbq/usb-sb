@@ -14,18 +14,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Install Java JDK, Node.JS and Python
+    - name: Install Node.JS
     # I hope this works
-    - uses: actions/setup-node@v4
+    # note to self, only add a - if its seperating from the other "name"
+      uses: actions/setup-node@v4
       with:
         node-version: 20.x
-    - uses: actions/setup-python@v5.1.0
+    - name: Install Python3
+      uses: actions/setup-python@v5.1.0
       with:
         python-version: 3.x
-    - uses: actions/setup-java@v4.2.1
+    - name: Install Java JDK
+      uses: actions/setup-java@v4.2.1
       with:
         java-version: 17.x
+    # Finish
     - run: npm ci
-    # - run: npm run test:lint
+    #- run: npm run test:lint
     - run: npm run prepublish
     
