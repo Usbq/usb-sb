@@ -10,6 +10,10 @@ permissions:
   pages: write
   id-token: write
 
+concurrency:
+  group: "deploy"
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -31,8 +35,15 @@ jobs:
       uses: actions/setup-python@v5.1.0
       with:
         python-version: 3.x
-    # Finish
+    # Build
     - run: npm ci
     #- run: npm run test:lint
     - run: npm run prepublish
-    
+    # Pull request changes
+    - name: PR Changes
+      uses: peter-evans/create-pull-request@v6.0.2
+      with:
+        branch: develop-builds
+        title: Build Files
+        body: Built files
+        commit-message: Commiting build.
