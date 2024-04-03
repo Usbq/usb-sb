@@ -9,6 +9,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  pull-requests: write
 
 concurrency:
   group: "deploy"
@@ -46,8 +47,8 @@ jobs:
         force: true
         commit-message: Commiting build.
     - name: PR Changes
-      uses: emiliopedrollo/create-pull-request@v1.1.0
+      uses: peter-evans/create-pull-request@v6.0.2
       with:
         title: Build Files
         body: Built files
-        # commit-message: Commiting build.
+        commit-message: Commiting build.
