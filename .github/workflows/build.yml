@@ -36,10 +36,9 @@ jobs:
       with:
         python-version: 3.x
     # Build
-    # Pre-public runs ci automatically
-    #- run: npm ci
+    # CI runs prepublish automatically woops
+    - run: npm ci
     #- run: npm run test:lint
-    - run: npm run prepublish
     # Pull request changes
     - name: PR Changes
       uses: peter-evans/create-pull-request@v6.0.2
