@@ -40,9 +40,9 @@ jobs:
     # CI runs prepublish automatically woops
     - run: npm ci
     #- run: npm run test:lint
-    - name: Setup Git Identity 🐙
+    - name: Setup Git Identity
       run: |
-        git config --global user.name "GitHub Actions Bot"
-        git config --global user.email "papersurv0+actions@gmail.com"
+        git config --local user.name "GitHub Actions Bot"
+        git config --local user.email "papersurv0+actions@gmail.com"
     - name: Push
       run: sh gh-deploy.sh
