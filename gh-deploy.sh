@@ -2,7 +2,7 @@
 #!/usr/bin/env sh
 
 git init
-git checkout -B main
+git checkout -B develop-builds
 git add -A
 git commit -m 'Build Files'
 
