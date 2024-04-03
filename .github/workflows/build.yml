@@ -28,6 +28,7 @@ jobs:
       uses: actions/setup-java@v4.2.1
       with:
         java-version: 17.x
+        distribution: jre
     # Finish
     - run: npm ci
     #- run: npm run test:lint
