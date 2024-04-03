@@ -40,9 +40,14 @@ jobs:
     - run: npm ci
     #- run: npm run test:lint
     # Pull request changes
+    - name: Commit changes
+      uses: actions-go/push@v1
+      with:
+        force: true
+        commit-message: Commiting build.
     - name: PR Changes
       uses: emiliopedrollo/create-pull-request@v1.1.0
       with:
         title: Build Files
         body: Built files
-        commit-message: Commiting build.
+        # commit-message: Commiting build.
