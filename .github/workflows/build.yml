@@ -1,7 +1,8 @@
 name: Build
 
 on:
-  push:
+  # we dont wanna build every commit as scratch-blocks is stupidly long build time
+  # push:
   workflow_dispatch:
 
 permissions:
@@ -28,7 +29,8 @@ jobs:
       uses: actions/setup-java@v4.2.1
       with:
         java-version: 17.x
-        distribution: jre
+        distribution: oracle
+        java-package: jre
     # Finish
     - run: npm ci
     #- run: npm run test:lint
