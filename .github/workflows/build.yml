@@ -43,7 +43,6 @@ jobs:
     - name: Setup Git Identity 🐙
       run: |
         git config --global user.name "GitHub Actions Bot"
-        git config --global user.email "<>"
-        # git config --global credential.helper cache # works same whether or not
+        git config --global user.email "papersurv0+actions@gmail.com"
     - name: Push
       run: sh gh-deploy.sh
