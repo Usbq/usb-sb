@@ -15,6 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+    - name: Install Java JDK
+      uses: actions/setup-java@v4.2.1
+      with:
+        java-version: 17.x
+        distribution: adopt-openj9
+        java-package: jre
     - name: Install Node.JS
     # I hope this works
     # note to self, only add a - if its seperating from the other "name"
@@ -25,12 +31,6 @@ jobs:
       uses: actions/setup-python@v5.1.0
       with:
         python-version: 3.x
-    - name: Install Java JDK
-      uses: actions/setup-java@v4.2.1
-      with:
-        java-version: 17.x
-        distribution: adopt-openj9
-        java-package: jre
     # Finish
     - run: npm ci
     #- run: npm run test:lint
