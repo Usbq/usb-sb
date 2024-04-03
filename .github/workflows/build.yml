@@ -40,22 +40,10 @@ jobs:
     # CI runs prepublish automatically woops
     - run: npm ci
     #- run: npm run test:lint
-    - name: Write branch
-      uses: GatorEducator/BranchWrite@v1.0.1
-      with:
-        token: ${{secrets.GITHUB_TOKEN}}
-        branch: develop-builds
-        path: .
-        source: develop
-        source-arg: develop/
-    #- name: Commit changes
-    #  uses: actions-go/push@v1
-    #  with:
-    #    force: true
-    #    commit-message: Commiting build.
-    #- name: PR Changes
-    #  uses: peter-evans/create-pull-request@v6.0.2
-    #  with:
-    #    title: Build Files
-    #    body: Built files
-    #    commit-message: Commiting build.
+    - name: Setup Git Identity 🐙
+      run: |
+        git config --global user.name "GitHub Actions Bot"
+        git config --global user.email "<>"
+        # git config --global credential.helper cache # works same whether or not
+    - name: Push
+      run: sh gh-deploy.sh
