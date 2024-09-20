@@ -51,6 +51,7 @@ goog.require('Blockly.WorkspaceDragSurfaceSvg');
 goog.require('Blockly.Xml');
 goog.require('Blockly.ZoomControls');
 goog.require('Blockly.IntersectionObserver');
+goog.require('Blockly.Highlight');
 
 goog.require('goog.array');
 goog.require('goog.dom');
@@ -123,6 +124,9 @@ Blockly.WorkspaceSvg = function(options, opt_blockDragSurface, opt_wsDragSurface
   this.checkProcedureReturnAfterGesture_ = false;
 };
 goog.inherits(Blockly.WorkspaceSvg, Blockly.Workspace);
+
+// To keep closure from deleting the file
+Blockly.WorkspaceSvg.Highlight = Blockly.Highlight;
 
 /**
  * A wrapper function called when a resize event occurs.
@@ -1113,7 +1117,7 @@ Blockly.WorkspaceSvg.prototype.reportValue = function(id, value) {
  */
 Blockly.WorkspaceSvg.prototype.reportValueWithCallback = function(id, value, callback) {
   const potentialValue = this.reportValue(id, value);
-  if (callback) callback(this.DropDownDiv.DIV_);
+  if (callback) callback(Blockly.DropDownDiv.DIV_);
   return potentialValue;
 };
 

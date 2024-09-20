@@ -59,7 +59,7 @@ Blockly.Highlight.highlight = function highlight(value, type) {
   if (type === 'object' && typeof value === 'string') {
     try {
       value = JSON.parse(value);
-    } catch {
+    } catch(err) {
       // @todo Maybe dont do this?
       value = 'undefined';
     }
