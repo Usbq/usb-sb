@@ -1105,6 +1105,19 @@ Blockly.WorkspaceSvg.prototype.reportValue = function(id, value) {
 };
 
 /**
+ * Visually report a value associated with a block.
+ * In Scratch, appears as a pop-up next to the block when a reporter block is clicked.
+ * @param {?string} id ID of block to report associated value.
+ * @param {?string} value String value to visually report.
+ * @param {?function} callback Callback to call when the report is shown.
+ */
+Blockly.WorkspaceSvg.prototype.reportValueWithCallback = function(id, value, callback) {
+  const potentialValue = this.reportValue(id, value);
+  if (callback) callback(this.DropDownDiv.DIV_);
+  return potentialValue;
+};
+
+/**
  * Paste the provided block onto the workspace.
  * @param {!Element} xmlBlock XML block element.
  */
