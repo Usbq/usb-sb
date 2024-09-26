@@ -9,9 +9,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout and merge develop
+      - name: Checkout
+        uses: actions/checkout@v4.2.0
+        with:
+          ref: 'develop-builds'
+      - name: Merge develop
         run: |
-          git checkout develop-builds
           git config pull.rebase false
           git merge develop
       - name: Install node.js
