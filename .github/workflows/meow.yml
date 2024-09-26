@@ -31,12 +31,11 @@ jobs:
       - name: CI and prepublish
         run: |
           npm ci
-          npm run prepublish
       - name: Push build
         run: |
-          git config --local user.email "actions@github.com"
+          echo 'GRR GITHUB IS MEANI ONEE-CHAN HELP!!!!' > /dev/null
+          git config --local user.email "action@github.com"
           git config --local user.name "GitHub Actions"
-          git switch develop-builds
-          git add .
+          git add . -f
           git commit -m "The blocks of scratch!!!"
-          git push origin develop-builds
+          git push origin develop-builds -f
