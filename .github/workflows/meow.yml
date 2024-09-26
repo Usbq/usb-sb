@@ -36,6 +36,9 @@ jobs:
           echo 'GRR GITHUB IS MEANI ONEE-CHAN HELP!!!!' > /dev/null
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Actions"
-          git add . -f
+          git stash
+          git switch develop-builds
+          git stash pop
+          git add .
           git commit -m "The blocks of scratch!!!"
           git push origin develop-builds -f
