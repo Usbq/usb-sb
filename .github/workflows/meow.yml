@@ -29,7 +29,9 @@ jobs:
           distribution: adopt-hotspot
           java-package: jre
       - name: CI and prepublish
-        run: npm ci
+        run: |
+          npm ci
+          npm run prepublish
       - name: Push build
         run: |
           git config --local user.email "actions@github.com"
