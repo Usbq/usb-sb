@@ -32,6 +32,6 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git add . -f
-          git commit -m "Scratching my blocks"
+          git add .
+          git commit -m "The blocks of scratch!!!"
           git push origin develop-builds
