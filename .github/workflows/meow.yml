@@ -1,5 +1,5 @@
 # Versioning based on my (miyo / yuri-kiss) gallery and local program versions.
-name: Build and push~
+name: Build and push
 on:
   workflow_dispatch:
 concurrency:
@@ -9,8 +9,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - name: Checkout and merge develop
+        run: |
+          git checkout develop-builds
+          git config pull.rebase false
+          git merge develop
       - name: Install node.js
         uses: actions/setup-node@26961cf329f22f6837d5f54c3efd76b480300ace #v4
         with:
